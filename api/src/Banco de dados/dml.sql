@@ -5,5 +5,5 @@ USE roses;
 SELECT TB_ANIME;
 
 -- CSUO 02 Add informações
-INSERT INTO TB_ANIME(nm_anime)
-        ('?');
+INSERT INTO nm_anime
+    VALUES ('?');
