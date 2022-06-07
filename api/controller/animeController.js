@@ -20,13 +20,13 @@ server.post('/anime', async (req, resp) => {
     }
 })
 
-server.get('/consulta', async (req, resp) => {
+server.get('/anime', (req, resp) => {
     try{
-        const animeinserir = req.body;
-        const anime = await inserirAnime (inserirAnime);
+        const anime = req.query.anime;
+
         resp.send({
-            anime
-        });
+            anime: anime
+        })
     }
     catch(err){
         resp.status(404).send({
