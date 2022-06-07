@@ -1,4 +1,4 @@
-USE prova;
+USE PROVA;
 
 
 -- CSUO 01 Consultar
