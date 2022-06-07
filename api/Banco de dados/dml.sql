@@ -1,4 +1,4 @@
-USE roses;
+USE prova;
 
 
 -- CSUO 01 Consultar
