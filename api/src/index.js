@@ -1,12 +1,12 @@
 import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
-import controller from '../controller/animecontroller.js'
+import animecontroller from '../controller/animecontroller.js'
 
 const server = express();
 server.use(express.json());
 server.use(cors());
-server.use(controller());
+server.use(animecontroller());
 
 
 server.listen(process.env.PORT,
