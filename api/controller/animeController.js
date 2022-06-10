@@ -1,4 +1,4 @@
-import { inserirAnime } from '../repository/animerepository'
+import { inserirAnime, consultarAnime } from '../repository/animerepository.js'
 import { Router } from 'express'
 
 
@@ -7,10 +7,12 @@ const server = Router();
 
 server.post('/anime', async (req, resp) => {
     try{
-        const inserirAnime = req.body;
-        const anime = await inserirAnime (inserirAnime);
+        const animeinserir = req.body;
+        
+        const anime = await inserirAnime (animeinserir);
+        
         resp.send({
-            anime
+            anime: anime
         });
     }
     catch(err){
@@ -20,12 +22,12 @@ server.post('/anime', async (req, resp) => {
     }
 })
 
-server.get('/anime', (req, resp) => {
+server.get('/anime', async (req, resp) => {
     try{
-        const anime = req.query.anime;
+        const re = await consultarAnime()
 
         resp.send({
-            anime: anime
+            anime: re
         })
     }
     catch(err){
