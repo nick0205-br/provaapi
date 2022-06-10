@@ -1,12 +1,20 @@
 import { con } from './connection.js'
 
 
-export async function inserirAnime(anime){
-    const comando = `INSERT INTO Tb_ANIME (id_anime, nm_anime)
-                                  VALUES (?, ?);`
+export async function inserirAnime(animeinserir){
+    const comando = `INSERT INTO Tb_ANIME (nm_anime)
+                                  VALUES (?)`;
 
-    const [resposta] = await con.query (comando, [anime.nome,]);
-    anime.id = resposta.insertId;
+    const [resposta] = await con.query (comando, [animeinserir.nome,]);
+    animeinserir.id = resposta.insertId;
 
-    return anime;
+    return resposta;
+}
+
+export async function consultarAnime(){
+    const comando = `SELECT * FROM tb_anime`;
+
+    const [resposta] = await con.query (comando);
+
+    return resposta;
 }
